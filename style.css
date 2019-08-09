@@ -1,0 +1,69 @@
+body {
+    background-color: black;
+}
+h4 {
+    font-family: 'Blinker', sans-serif;
+    color: #ED730E;
+}
+h1 {
+    font-family: 'Blinker', sans-serif;
+    font-size: 80px;
+    color: bisque;
+    text-align: center;
+    margin-bottom: 20px;
+}
+#current {
+    margin-bottom: 30px;
+}
+h4 {
+    font-size: 40px;
+    /* margin-left: 60px;;
+    justify-content: left; */
+}
+#schedule, #add-train {
+    /* border: 5px solid #0dcbec;
+    border-radius: 8% 20% 8% 20%;
+    padding: 20px; */
+    /* margin-left: 60px; */
+    font-family: 'Blinker', sans-serif;
+    color: bisque;
+}
+#row-headings {
+    font-family: 'Blinker', sans-serif;
+    color: #0dcbec;
+    font-size: 22px;
+    align-content: center;
+}
+#train-name, #train-dest, #train-first, #train-freq {
+    font-family: 'Blinker', sans-serif;
+    color: #ED730E;
+    font-size: 22px;
+    height: 40px;
+    width: 100%;
+    margin-bottom: 15px;
+    border-radius: 5px;
+}
+label {
+    font-family: 'Blinker', sans-serif;
+    color: #0dcbec;
+    font-size: 22px;
+    padding-bottom: 5px;
+}
+#submit {
+    color: bisque;
+    font-family: 'Blinker', sans-serif;
+    font-size: 22px;
+    background-color: #ED730E;
+    border: #ED730E;
+    border-radius: 5px;
+    height: 40px;
+    width: 80px;
+}
+hr {
+    margin-bottom: 8px;
+}
+table {
+    text-align: center;
+    font-family: 'Blinker', sans-serif;
+    font-size: 20px;
+}
