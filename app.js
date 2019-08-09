@@ -15,19 +15,20 @@ var firebaseConfig = {
   var name = "";
   var destination = "";
   var firstTime = 0;
-  var frequency = 0;
+  var frequency = "";
   var minAway = 0;
-  var currentTime = moment();
-  var firstTimeAdj = moment(firstTime, "HH:mm").subtract(1, "years");
-    console.log("FIRST TIME ADJUSTED: " + firstTimeAdj);
-  var timeDiff = moment().diff(moment(firstTimeAdj), "minutes");
-    console.log("DIFFERENCE IN TIME: " + timeDiff);
-  var remainder = timeDiff % frequency;
-    console.log("REMAINDER: " + remainder);
-  var minAway = frequency - remainder;
-    console.log("MINUTES TILL TRAIN: " + minAway);
-  var nextArrival = moment().add(minAway, "minutes");
-    console.log("ARRIVAL TIME: " + moment(nextArrival).format("HH:mm"));
+
+  // var currentTime = moment();
+  // var firstTimeAdj = moment(firstTime, "HH:mm").subtract(1, "years");
+  //   console.log("FIRST TIME ADJUSTED: " + firstTimeAdj);
+  // var timeDiff = moment().diff(moment(firstTimeAdj), "minutes");
+  //   console.log("DIFFERENCE IN TIME: " + timeDiff);
+  // var remainder = timeDiff % frequency;
+  //   console.log("REMAINDER: " + remainder);
+  // var minAway = frequency - remainder;
+  //   console.log("MINUTES TILL TRAIN: " + minAway);
+  // var nextArrival = moment().add(minAway, "minutes");
+  //   console.log("ARRIVAL TIME: " + moment(nextArrival).format("HH:mm"));
 
 
   $("#submit").on ("click", function() {
@@ -56,6 +57,19 @@ var firebaseConfig = {
       console.log(snap.destination);
       console.log(snap.firstTime);
       console.log(snap.frequency);
+
+      currentTime = moment();
+      frequency = snap.frequency;
+      var firstTimeAdj = moment(firstTime, "HH:mm").subtract(1, "years");
+        console.log("FIRST TIME ADJUSTED: " + firstTimeAdj);
+      var timeDiff = moment().diff(moment(firstTimeAdj), "minutes");
+        console.log("DIFFERENCE IN TIME: " + timeDiff);
+      var remainder = timeDiff % frequency;
+        console.log("REMAINDER: " + remainder);
+      var minAway = frequency - remainder;
+        console.log("MINUTES TILL TRAIN: " + minAway);
+      var nextArrival = currentTime.add(minAway, "minutes");
+        console.log("ARRIVAL TIME: " + moment(nextArrival).format("HH:mm"));
 
       var newRow = "<tr><td>" + snap.name + "</td><td>" + snap.destination + 
         "</td><td>" + snap.frequency + "</td><td>" + nextArrival.format("HH:mm") + "</td><td>" + minAway + "</td></tr>"
