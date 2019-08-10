@@ -1,9 +1,10 @@
+
 var firebaseConfig = {
     apiKey: "AIzaSyD7-dC-cv4AOk-dEoWMG-CnKzvvDwTZWSA",
     authDomain: "fir-intro-76151.firebaseapp.com",
     databaseURL: "https://fir-intro-76151.firebaseio.com",
     projectId: "fir-intro-76151",
-    storageBucket: "",
+    storageBucket: "fir-intro-76151.appspot.com",
     messagingSenderId: "572928853975",
     appId: "1:572928853975:web:f336efac7260b627"
   };
@@ -30,7 +31,6 @@ var firebaseConfig = {
   // var nextArrival = moment().add(minAway, "minutes");
   //   console.log("ARRIVAL TIME: " + moment(nextArrival).format("HH:mm"));
 
-
   $("#submit").on ("click", function() {
       event.preventDefault();
 
@@ -39,7 +39,7 @@ var firebaseConfig = {
       firstTime = $("#train-first").val().trim();
       frequency = $("#train-freq").val().trim();
 
-      database.ref().set({
+      database.ref().push({
         name: name,
         destination: destination,
         firstTime: firstTime,
@@ -50,7 +50,7 @@ var firebaseConfig = {
       $("#train-first").val("");
       $("#train-freq").val("");
   });
-  database.ref().on("value", function(snapshot) {
+  database.ref().on("child_added", function(snapshot) {
       var snap = snapshot.val();
 
       console.log(snap.name);
